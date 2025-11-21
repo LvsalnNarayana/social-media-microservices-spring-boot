@@ -1,0 +1,151 @@
+{
+  "info": {
+    "name": "Comment Service API",
+    "_postman_id": "a3f6c92b-2fb9-4c52-b9a1-30e0efc22caa",
+    "description": "Postman collection for Comment Microservice running on localhost:4300",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Comment",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"postId\": \"00000000-0000-0000-0000-000000000000\",\n  \"authorId\": \"user123\",\n  \"content\": \"This is a comment.\",\n  \"mediaUrls\": [\"http://image.com/img1.jpg\"],\n  \"parentCommentId\": null,\n  \"visibility\": \"PUBLIC\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:4300/api/v1/comments",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4300",
+          "path": ["api", "v1", "comments"]
+        }
+      }
+    },
+    {
+      "name": "Update Comment",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "text/plain" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "Updated comment content"
+        },
+        "url": {
+          "raw": "http://localhost:4300/api/v1/comments/{{commentId}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4300",
+          "path": ["api", "v1", "comments", "{{commentId}}"]
+        }
+      }
+    },
+    {
+      "name": "Delete Comment",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "http://localhost:4300/api/v1/comments/{{commentId}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4300",
+          "path": ["api", "v1", "comments", "{{commentId}}"]
+        }
+      }
+    },
+    {
+      "name": "Get Comment By ID",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:4300/api/v1/comments/{{commentId}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4300",
+          "path": ["api", "v1", "comments", "{{commentId}}"]
+        }
+      }
+    },
+    {
+      "name": "Get Comments For Post",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:4300/api/v1/comments/post/{{postId}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4300",
+          "path": ["api", "v1", "comments", "post", "{{postId}}"]
+        }
+      }
+    },
+    {
+      "name": "Add Reply to Comment",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"postId\": \"00000000-0000-0000-0000-000000000000\",\n  \"authorId\": \"user123\",\n  \"content\": \"This is a reply.\",\n  \"mediaUrls\": [],\n  \"parentCommentId\": \"{{parentCommentId}}\",\n  \"visibility\": \"PUBLIC\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:4300/api/v1/comments/{{parentCommentId}}/reply",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4300",
+          "path": ["api", "v1", "comments", "{{parentCommentId}}", "reply"]
+        }
+      }
+    },
+    {
+      "name": "Get Replies for Comment",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:4300/api/v1/comments/{{parentCommentId}}/replies",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4300",
+          "path": ["api", "v1", "comments", "{{parentCommentId}}", "replies"]
+        }
+      }
+    },
+    {
+      "name": "Get Comments by Author",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:4300/api/v1/comments/author/{{authorId}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4300",
+          "path": ["api", "v1", "comments", "author", "{{authorId}}"]
+        }
+      }
+    },
+    {
+      "name": "Count Comments for Post",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:4300/api/v1/comments/post/{{postId}}/count",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4300",
+          "path": ["api", "v1", "comments", "post", "{{postId}}", "count"]
+        }
+      }
+    }
+  ]
+}
+
+
+

@@ -1,0 +1,27 @@
+{
+  "id": "uuid-v4",
+  "timestamp": "2025-11-21T12:00:00Z",
+  "service": "comment-service",
+  "level": "INFO",
+  "message": "Reply created successfully",
+
+  "traceId": "trace-uuid",
+  "spanId": "span-uuid",
+
+  "request": {
+    "method": "POST",
+    "path": "/api/v1/comments",
+    "userId": "user-123"
+  },
+
+  "context": {
+    "postId": "post-xyz",
+    "commentId": "comment-abc",
+    "replyId": "reply-001"
+  },
+
+  "exception": {
+    "type": "IllegalArgumentException",
+    "message": "Invalid ID format"
+  }
+}

@@ -1,0 +1,9 @@
+CREATE TABLE post.replies{
+    id UUID PRIMARY KEY,
+    comment_id UUID NOT NULL,
+    author_id VARCHAR(20) NOT NULL,
+    content TEXT NOT NULL,
+    created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (comment_id) REFERENCES post.comments(id) ON DELETE CASCADE
+}

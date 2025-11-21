@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d014b719-04d9-4913-8951-f05d4f0e0736" name="Changes" comment="INITIAL COMMIT  completed post,comment,reply and user services. wroking on logging, need to integrate keycloak">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.agent.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.ask.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.ask2agent.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.edit.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/example/social_media/api_gateway/ApiGatewayApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/example/social_media/api_gateway/configuration/RouteConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/src/test/java/com/example/social_media/api_gateway/ApiGatewayApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/comment-service/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/comment-service/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/comment-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/comment-service/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/comment-service/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/comment-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/comment-service/src/main/java/com/example/social_media/comment_service/CommentServiceApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/comment-service/src/main/java/com/example/social_media/comment_service/advisors/RestApiControllerAdvice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/comment-service/src/main/java/com/example/social_media/comment_service/entity/CommentEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/comment-service/src/main/java/com/example/social_media/comment_service/mappers/CommentModelMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/comment-service/src/main/java/com/example/social_media/comment_service/models/CommentModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/comment-service/src/main/java/com/example/social_media/comment_service/models/CommentRequestModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/comment-service/src/main/java/com/example/social_media/comment_service/models/CommentResponseModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/comment-service/src/main/java/com/example/social_media/comment_service/models/FlagRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/comment-service/src/main/java/com/example/social_media/comment_service/repository/CommentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/comment-service/src/main/java/com/example/social_media/comment_service/services/CommentServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/comment-service/src/main/java/com/example/social_media/comment_service/services/interfaces/ICommentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/comment-service/src/main/java/com/example/social_media/comment_service/web/api/CommentControllerImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/comment-service/src/main/java/com/example/social_media/comment_service/web/api/interfaces/ICommentApi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/comment-service/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/comment-service/src/test/java/com/example/social_media/comment_service/CommentServiceApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/comments-postman.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config-server/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config-server/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config-server/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config-server/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config-server/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config-server/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config-server/src/main/java/com/example/social_media/config_server/ConfigServerApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config-server/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config-server/src/main/resources/configurations/api-gateway.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config-server/src/main/resources/configurations/comment-service.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config-server/src/main/resources/configurations/message-service.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config-server/src/main/resources/configurations/post-service.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config-server/src/main/resources/configurations/reply-service.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config-server/src/main/resources/configurations/user-service.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config-server/src/test/java/com/example/social_media/config_server/ConfigServerApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database-setup/comment-db/comment-index.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database-setup/comment-db/comment-table.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database-setup/functions.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database-setup/post-db/post-index.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database-setup/post-db/post-table-init.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database-setup/reply-db/reply-index.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database-setup/reply-db/reply-table.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database-setup/schemas.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logging-service/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logging-service/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logging-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logging-service/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logging-service/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logging-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logging-service/sample-log.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logging-service/src/main/java/com/example/social_media/logging_service/LoggingServiceApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logging-service/src/main/java/com/example/social_media/logging_service/configuration/KafkaConsumerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logging-service/src/main/java/com/example/social_media/logging_service/models/LogEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logging-service/src/main/java/com/example/social_media/logging_service/services/LogEventListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logging-service/src/main/java/com/example/social_media/logging_service/services/LogStorageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logging-service/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logging-service/src/test/java/com/example/social_media/logging_service/LoggingServiceApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/message-service/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/message-service/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/message-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/message-service/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/message-service/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/message-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/message-service/src/main/java/com/example/social_media/message_service/MessageServiceApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/message-service/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/message-service/src/test/java/com/example/social_media/message_service/MessageServiceApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post-service/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post-service/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post-service/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post-service/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post-service/src/main/java/com/example/social_media/post_service/PostServiceApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post-service/src/main/java/com/example/social_media/post_service/advisors/RestApiControllerAdvice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post-service/src/main/java/com/example/social_media/post_service/entity/PostEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post-service/src/main/java/com/example/social_media/post_service/mappers/PostModelMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post-service/src/main/java/com/example/social_media/post_service/models/FlagRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post-service/src/main/java/com/example/social_media/post_service/models/PagedPostModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post-service/src/main/java/com/example/social_media/post_service/models/PostModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post-service/src/main/java/com/example/social_media/post_service/models/PostRequestModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post-service/src/main/java/com/example/social_media/post_service/models/PostResponseModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post-service/src/main/java/com/example/social_media/post_service/repository/PostRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post-service/src/main/java/com/example/social_media/post_service/services/PostServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post-service/src/main/java/com/example/social_media/post_service/services/interfaces/IPostService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post-service/src/main/java/com/example/social_media/post_service/web/api/PostControllerImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post-service/src/main/java/com/example/social_media/post_service/web/api/interfaces/IPostApi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post-service/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post-service/src/test/java/com/example/social_media/post_service/PostServiceImplApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/posts-postman.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reply-postman.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reply-service/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reply-service/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reply-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reply-service/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reply-service/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reply-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reply-service/src/main/java/com/example/social_media/reply_service/ReplyServiceApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reply-service/src/main/java/com/example/social_media/reply_service/advisors/RestApiControllerAdvice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reply-service/src/main/java/com/example/social_media/reply_service/entity/ReplyEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reply-service/src/main/java/com/example/social_media/reply_service/mappers/ReplyModelMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reply-service/src/main/java/com/example/social_media/reply_service/models/FlagRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reply-service/src/main/java/com/example/social_media/reply_service/models/ReplyModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reply-service/src/main/java/com/example/social_media/reply_service/models/ReplyRequestModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reply-service/src/main/java/com/example/social_media/reply_service/models/ReplyResponseModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reply-service/src/main/java/com/example/social_media/reply_service/repository/ReplyRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reply-service/src/main/java/com/example/social_media/reply_service/services/ReplyServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reply-service/src/main/java/com/example/social_media/reply_service/services/interfaces/IReplyService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reply-service/src/main/java/com/example/social_media/reply_service/web/api/ReplyApiImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reply-service/src/main/java/com/example/social_media/reply_service/web/api/interfaces/IReplyApi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reply-service/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reply-service/src/test/java/com/example/social_media/reply_service/ReplyServiceApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/SharedLibsApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/advisors/BaseExceptionAdvisor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/builders/LogEventBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/configuration/LoggingKafkaConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/configuration/LoggingProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/configuration/SharedLibsAutoConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/constants/BaseUrlConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/exceptions/BadRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/exceptions/BaseException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/exceptions/Conflict.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/exceptions/InternalServerException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/exceptions/NotFound.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/exceptions/ServiceException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/exceptions/UnAuthorized.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/kafka/KafkaLogProducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/models/BaseModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/models/ErrorResponseModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/models/JwtTokenModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/models/LogEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/models/MasterResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/models/Status.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/schema/PagedResponseSchema.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/services/BaseService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/services/LoggingService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/services/TokenService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/utils/RestClientUtility.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/web/api/BaseApi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports " afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social-media-docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/example/social_media/user_service/UserServiceApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/example/social_media/user_service/advisors/RestApiControllerAdvice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/example/social_media/user_service/entity/UserEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/example/social_media/user_service/models/PagedUserResponseModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/example/social_media/user_service/models/UserModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/example/social_media/user_service/models/UserRequestModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/example/social_media/user_service/models/UserResponseModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/example/social_media/user_service/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/example/social_media/user_service/services/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/example/social_media/user_service/services/interfaces/IUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/example/social_media/user_service/web/api/UserApiImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/example/social_media/user_service/web/api/interfaces/IUserApi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-service/src/test/java/com/example/social_media/user_service/UserServiceApplicationTests.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="package-info" />
+        <option value="Interface" />
+        <option value="Exception" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="32SZ4hhxlXky18JarBufUC7y8HV" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.api-gateway.executor": "Run",
+    "Application.catalog-service.executor": "Run",
+    "Application.comment-service.executor": "Run",
+    "Application.config-server.executor": "Run",
+    "Application.message-service.executor": "Run",
+    "Application.order-service.executor": "Debug",
+    "Application.post-service.executor": "Run",
+    "Application.reply-service.executor": "Run",
+    "Application.user-service.executor": "Run",
+    "Maven.api-gateway [clean].executor": "Run",
+    "Maven.comment-service [clean].executor": "Run",
+    "Maven.comment-service [compile].executor": "Run",
+    "Maven.config-server [clean].executor": "Run",
+    "Maven.message-service [clean].executor": "Run",
+    "Maven.post-service [clean].executor": "Run",
+    "Maven.post-service [compile].executor": "Run",
+    "Maven.post-service [install].executor": "Run",
+    "Maven.post-service [package].executor": "Run",
+    "Maven.reply-service [clean].executor": "Run",
+    "Maven.shared-libs [clean].executor": "Run",
+    "Maven.shared-libs [compile].executor": "Run",
+    "Maven.shared-libs [package].executor": "Run",
+    "Maven.shared_libs [clean].executor": "Run",
+    "Maven.shared_libs [compile].executor": "Run",
+    "Maven.shared_libs [install].executor": "Run",
+    "Maven.shared_libs [package].executor": "Run",
+    "Maven.user-service [clean].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "OverrideImplement.generate.javadoc": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/narayanalvsaln/Dev/Dev Setup/spring-boot/social-media-microservices/reply-service/src/main/java/com/example/social_media/reply_service",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "advanced.settings"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.social_media.user_service.models.interfaces" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/reply-service/src/main/java/com/example/social_media/reply_service" />
+      <recent name="$PROJECT_DIR$/comment-service/src/main/java/com/example/social_media/comment_service" />
+      <recent name="$PROJECT_DIR$/user-service/src/main/java/com/example/social_media/user_service" />
+      <recent name="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs" />
+      <recent name="$PROJECT_DIR$/post-service/src/main/java/com/example/social_media/post_service" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/config-server/src/main/resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.social_media.shared_libs.models" />
+      <recent name="com.example.social_media.post_service.models" />
+      <recent name="com.example.social_media.shared_libs.exceptions" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="Application" />
+      </set>
+    </option>
+    <option name="hiddenConfigurations">
+      <map>
+        <entry key="Application">
+          <value>
+            <set>
+              <option value="api-gateway" />
+              <option value="config-server" />
+            </set>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="configurationStatuses">
+      <map>
+        <entry key="Application">
+          <value>
+            <map>
+              <entry key="comment-service" value="STOPPED" />
+              <entry key="message-service" value="STOPPED" />
+              <entry key="post-service" value="STOPPED" />
+              <entry key="reply-service" value="STOPPED" />
+              <entry key="user-service" value="STOPPED" />
+            </map>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.comment-service">
+    <configuration name="api-gateway" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.example.social_media.api_gateway.ApiGatewayApplication" />
+      <module name="api-gateway" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="comment-service" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.example.social_media.comment_service.CommentServiceApplication" />
+      <module name="comment-service" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="config-server" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.example.social_media.config_server.ConfigServerApplication" />
+      <module name="config-server" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="message-service" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.example.social_media.message_service.MessageServiceApplication" />
+      <module name="message-service" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="post-service" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.example.social_media.post_service.PostServiceApplication" />
+      <module name="post-service" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="reply-service" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.example.social_media.reply_service.ReplyServiceApplication" />
+      <module name="reply-service" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="user-service" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.example.social_media.user_service.UserServiceApplication" />
+      <module name="user-service" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.api-gateway" />
+      <item itemvalue="Application.comment-service" />
+      <item itemvalue="Application.config-server" />
+      <item itemvalue="Application.message-service" />
+      <item itemvalue="Application.post-service" />
+      <item itemvalue="Application.reply-service" />
+      <item itemvalue="Application.user-service" />
+    </list>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d014b719-04d9-4913-8951-f05d4f0e0736" name="Changes" comment="" />
+      <created>1757415745365</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1757415745365</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="INITIAL COMMIT  completed post,comment,reply and user services. wroking on logging, need to integrate keycloak" />
+    <option name="LAST_COMMIT_MESSAGE" value="INITIAL COMMIT  completed post,comment,reply and user services. wroking on logging, need to integrate keycloak" />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
+  </component>
+</project>

@@ -1,0 +1,208 @@
+# Define named volumes for data persistence (removed driver_opts to avoid device error)
+volumes:
+  sql_data:
+  redis_data:
+  mongo_data:
+  kafka_data:
+
+# Define custom network for efficient communication
+networks:
+  social_media_network:
+    driver: bridge
+    driver_opts:
+      com.docker.network.bridge.enable_icc: "true"  # Enable inter-container communication
+      com.docker.network.driver.mtu: 1500  # Optimize MTU for performance
+
+# Environment file for sensitive data
+x-environment: &default-env
+  POSTGRES_USER: admin
+  POSTGRES_PASSWORD: admin1234
+  POSTGRES_DB: social_media_db
+  MONGO_INITDB_ROOT_USERNAME: admin
+  MONGO_INITDB_ROOT_PASSWORD: admin1234
+  MONGO_INITDB_DATABASE: social_media_db
+  PGADMIN_DEFAULT_EMAIL: admin@admin.com
+  PGADMIN_DEFAULT_PASSWORD: admin1234
+  ME_CONFIG_MONGODB_ADMINUSERNAME: admin
+  ME_CONFIG_MONGODB_ADMINPASSWORD: admin1234
+  ME_CONFIG_MONGODB_SERVER: mongo_db
+  ME_CONFIG_MONGODB_PORT: 27017
+  ME_CONFIG_MONGODB_AUTH_DATABASE: admin
+
+services:
+  sql_db:
+    image: postgres:15-alpine
+    container_name: social_media_sql_db
+    ports:
+      - "5432:5432"
+    environment: *default-env
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U admin" ]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
+    volumes:
+      - sql_data:/var/lib/postgresql/data
+      - /tmp:/tmp:tmpfs  # Use tmpfs for temporary files
+    networks:
+      - social_media_network
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          memory: 256M
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  redis:
+    image: redis:7-alpine
+    container_name: social_media_redis
+    command: redis-server --maxmemory 100mb --maxmemory-policy allkeys-lru
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
+    volumes:
+      - redis_data:/data
+      - /tmp:/tmp:tmpfs
+    networks:
+      - social_media_network
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 128M
+        reservations:
+          memory: 64M
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "3"
+
+  mongo_db:
+    image: mongo:7.0
+    container_name: social_media_mongo_db
+    ports:
+      - "27017:27017"
+    environment: *default-env
+    healthcheck:
+      test: [ "CMD", "mongosh", "--eval", "db.adminCommand('ping')" ]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
+    volumes:
+      - mongo_data:/data/db
+      - /tmp:/tmp:tmpfs
+    networks:
+      - social_media_network
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          memory: 256M
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  pgadmin:
+    image: dpage/pgadmin4:8.8
+    container_name: social_media_pgadmin
+    environment: *default-env
+    ports:
+      - "3200:80"
+    depends_on:
+      sql_db:
+        condition: service_healthy
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:80" ]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
+    networks:
+      - social_media_network
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 128M
+        reservations:
+          memory: 64M
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "3"
+
+  mongodb_express:
+    image: mongo-express:1.0.2
+    container_name: social_media_mongodb_express
+    environment: *default-env
+    ports:
+      - "8081:8081"
+    depends_on:
+      mongo_db:
+        condition: service_healthy
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8081" ]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
+    networks:
+      - social_media_network
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 128M
+        reservations:
+          memory: 64M
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "3"
+
+  kafka:
+    image: confluentinc/cp-kafka:7.6.1
+    container_name: social_media_kafka
+    ports:
+      - "9092:9092"
+      - "9093:9093"
+    environment:
+      KAFKA_PROCESS_ROLES: "broker,controller"
+      KAFKA_NODE_ID: 1
+      KAFKA_CONTROLLER_QUORUM_VOTERS: "1@kafka:9093"
+      KAFKA_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      CLUSTER_ID: "Dl6WfYkZQW6Yj5JiWqYv1A"   # must be 22 chars
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+    volumes:
+      - kafka_data:/bitnami/kafka
+    networks:
+      - social_media_network
+    restart: unless-stopped

@@ -1,0 +1,9 @@
+CREATE TABLE post.comments{
+    id UUID PRIMARY KEY,
+    post_id UUID NOT NULL,
+    author_id VARCHAR(20) NOT NULL,
+    content TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (post_id) REFERENCES post.post(id) ON DELETE CASCADE
+}

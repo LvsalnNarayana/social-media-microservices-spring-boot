@@ -1,0 +1,1 @@
+CREATE INDEX idx_reply ON post.replies(id);

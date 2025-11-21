@@ -1,0 +1,463 @@
+{
+  "info": {
+    "_postman_id": "post-service-api-2025-11-19",
+    "name": "Post Service API - Social Media Backend",
+    "description": "Comprehensive collection for testing PostControllerImpl endpoints. Mirrors IPostApi spec with example payloads from PostRequestModel/PostResponseModel. Set env vars: baseUrl, postId, authorId, userId.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{authToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "exec": [
+          "console.log('Pre-flight: Testing ' + pm.info.requestName + ' at ' + new Date().toISOString());"
+        ],
+        "type": "text/javascript"
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "exec": [
+          "pm.test('Status code matches expected', () => {",
+          "    pm.response.to.have.status(200); // Adjust per endpoint",
+          "});",
+          "pm.test('MasterResponse structure', () => {",
+          "    const jsonData = pm.response.json();",
+          "    pm.expect(jsonData).to.have.property('status');",
+          "    pm.expect(jsonData).to.have.property('data');",
+          "});",
+          "console.log('Response time: ' + pm.response.responseTime + 'ms');"
+        ],
+        "type": "text/javascript"
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Post Operations",
+      "item": [
+        {
+          "name": "Create Post",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"authorId\": \"{{authorId}}\",\n    \"content\": \"Excited about the stars tonight! #Astrophotography\",\n    \"mediaUrls\": [\"https://example.com/image.jpg\"],\n    \"hashtags\": [\"Astrophotography\", \"Innovation\"],\n    \"mentions\": [\"@grok\"],\n    \"visibility\": \"PUBLIC\",\n    \"location\": \"Remote Mountains\",\n    \"postType\": \"TEXT\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:4200/api/v1/posts",
+              "host": [
+                "http://localhost:4200"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "posts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Post",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"authorId\": \"{{authorId}}\",\n    \"content\": \"Updated: Capturing interstellar wonders! #TechLegacy\",\n    \"mediaUrls\": [\"https://example.com/updated-image.jpg\"],\n    \"hashtags\": [\"TechLegacy\"],\n    \"mentions\": [],\n    \"visibility\": \"FRIENDS\",\n    \"location\": \"Hiking Trail\",\n    \"postType\": \"IMAGE\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:4200/api/v1/posts/32323232",
+              "host": [
+                "http://localhost:4200"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "posts",
+                "32323232"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Post by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4200/api/v1/posts/32323232",
+              "host": [
+                "http://localhost:4200"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "posts",
+                "32323232"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success - PostResponseModel",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:4200/api/v1/posts/32323232",
+                  "host": [
+                    "http://localhost:4200"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "posts",
+                    "32323232"
+                  ]
+                }
+              },
+              "status": "OK",
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "cookie": [],
+              "body": "{\n    \"status\": {\n        \"statusCode\": 200,\n        \"message\": \"OK\"\n    },\n    \"data\": {\n        \"id\": \"32323232\",\n        \"authorId\": \"{{authorId}}\",\n        \"content\": \"Sample post content\",\n        \"mediaUrls\": [],\n        \"hashtags\": [],\n        \"mentions\": [],\n        \"commentIds\": [],\n        \"likesCount\": 0,\n        \"commentsCount\": 0,\n        \"sharesCount\": 0,\n        \"edited\": false,\n        \"pinned\": false,\n        \"flagged\": false,\n        \"flaggedReason\": null,\n        \"visibility\": \"PUBLIC\",\n        \"location\": null,\n        \"postType\": \"TEXT\",\n        \"createdAt\": \"2025-11-19T10:00:00Z\",\n        \"updatedAt\": \"2025-11-19T10:00:00Z\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Post",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4200/api/v1/posts/32323232",
+              "host": [
+                "http://localhost:4200"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "posts",
+                "32323232"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Posts by Author",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4200/api/v1/posts/author/{{authorId}}",
+              "host": [
+                "http://localhost:4200"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "posts",
+                "author",
+                "{{authorId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Posts Paginated",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4200/api/v1/posts?page={{page}}&size={{size}}",
+              "host": [
+                "http://localhost:4200"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "posts"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Interactions",
+      "item": [
+
+        {
+          "name": "Like Post",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4200/api/v1/posts/32323232/like?userId={{userId}}",
+              "host": [
+                "http://localhost:4200"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "posts",
+                "32323232",
+                "like"
+              ],
+              "query": [
+                {
+                  "key": "userId",
+                  "value": "{{userId}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Unlike Post",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4200/api/v1/posts/32323232/unlike?userId={{userId}}",
+              "host": [
+                "http://localhost:4200"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "posts",
+                "32323232",
+                "unlike"
+              ],
+              "query": [
+                {
+                  "key": "userId",
+                  "value": "{{userId}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Share Post",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4200/api/v1/posts/32323232/share?userId={{userId}}",
+              "host": [
+                "http://localhost:4200"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "posts",
+                "32323232",
+                "share"
+              ],
+              "query": [
+                {
+                  "key": "userId",
+                  "value": "{{userId}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Moderation",
+      "item": [
+        {
+          "name": "Pin Post",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4200/api/v1/posts/32323232/pin",
+              "host": [
+                "http://localhost:4200"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "posts",
+                "32323232",
+                "pin"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Unpin Post",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4200/api/v1/posts/32323232/unpin",
+              "host": [
+                "http://localhost:4200"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "posts",
+                "32323232",
+                "unpin"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Flag Post",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4200/api/v1/posts/32323232/flag?reason={{reason}}",
+              "host": [
+                "http://localhost:4200"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "posts",
+                "32323232",
+                "flag"
+              ],
+              "query": [
+                {
+                  "key": "reason",
+                  "value": "Inappropriate content"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Unflag Post",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4200/api/v1/posts/32323232/unflag",
+              "host": [
+                "http://localhost:4200"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "posts",
+                "32323232",
+                "unflag"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Comments",
+      "item": [
+        {
+          "name": "Add Comment",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4200/api/v1/posts/32323232/comments/{{commentId}}",
+              "host": [
+                "http://localhost:4200"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "posts",
+                "32323232",
+                "comments",
+                "{{commentId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Remove Comment",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4200/api/v1/posts/32323232/comments/{{commentId}}",
+              "host": [
+                "http://localhost:4200"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "posts",
+                "32323232",
+                "comments",
+                "{{commentId}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

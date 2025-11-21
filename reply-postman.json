@@ -1,0 +1,240 @@
+{
+  "info": {
+    "name": "Reply Service API",
+    "_postman_id": "4fae41ac-830a-44c3-9b64-e55b8c8d8475",
+    "description": "Reply Microservice API — grouped by CRUD, Fetch, Moderation, Engagement, Analytics",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+
+    {
+      "name": "Core CRUD",
+      "item": [
+        {
+          "name": "Create Reply",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"postId\": \"00000000-0000-0000-0000-000000000000\",\n  \"parentCommentId\": \"00000000-0000-0000-0000-000000000001\",\n  \"authorId\": \"user123\",\n  \"content\": \"This is a reply.\",\n  \"mediaUrls\": [],\n  \"visibility\": \"PUBLIC\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:4400/api/v1/reply",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4400",
+              "path": ["api", "v1", "reply"]
+            }
+          }
+        },
+        {
+          "name": "Update Reply",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "text/plain" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "Updated reply content"
+            },
+            "url": {
+              "raw": "http://localhost:4400/api/v1/reply/{{replyId}}",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4400",
+              "path": ["api", "v1", "reply", "{{replyId}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Reply",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "http://localhost:4400/api/v1/reply/{{replyId}}",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4400",
+              "path": ["api", "v1", "reply", "{{replyId}}"]
+            }
+          }
+        },
+        {
+          "name": "Get Reply By ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:4400/api/v1/reply/{{replyId}}",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4400",
+              "path": ["api", "v1", "reply", "{{replyId}}"]
+            }
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Fetch / Query",
+      "item": [
+        {
+          "name": "Replies for Comment",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:4400/api/v1/reply/comment/{{parentCommentId}}",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4400",
+              "path": ["api", "v1", "reply", "comment", "{{parentCommentId}}"]
+            }
+          }
+        },
+        {
+          "name": "Replies for Post",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:4400/api/v1/reply/post/{{postId}}",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4400",
+              "path": ["api", "v1", "reply", "post", "{{postId}}"]
+            }
+          }
+        },
+        {
+          "name": "Replies by Author",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:4400/api/v1/reply/author/{{authorId}}",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4400",
+              "path": ["api", "v1", "reply", "author", "{{authorId}}"]
+            }
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Moderation",
+      "item": [
+        {
+          "name": "Flag Reply",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "http://localhost:4400/api/v1/reply/{{replyId}}/flag?reason=Inappropriate",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4400",
+              "path": ["api", "v1", "reply", "{{replyId}}", "flag"],
+              "query": [
+                { "key": "reason", "value": "Inappropriate" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Remove Flag",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "http://localhost:4400/api/v1/reply/{{replyId}}/flag",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4400",
+              "path": ["api", "v1", "reply", "{{replyId}}", "flag"]
+            }
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Engagement",
+      "item": [
+        {
+          "name": "Like Reply",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "http://localhost:4400/api/v1/reply/{{replyId}}/like",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4400",
+              "path": ["api", "v1", "reply", "{{replyId}}", "like"]
+            }
+          }
+        },
+        {
+          "name": "Unlike Reply",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "http://localhost:4400/api/v1/reply/{{replyId}}/like",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4400",
+              "path": ["api", "v1", "reply", "{{replyId}}", "like"]
+            }
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Analytics / Counts",
+      "item": [
+        {
+          "name": "Count Replies for Comment",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:4400/api/v1/reply/comment/{{parentCommentId}}/count",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4400",
+              "path": ["api", "v1", "reply", "comment", "{{parentCommentId}}", "count"]
+            }
+          }
+        },
+        {
+          "name": "Count Replies for Post",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:4400/api/v1/reply/post/{{postId}}/count",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4400",
+              "path": ["api", "v1", "reply", "post", "{{postId}}", "count"]
+            }
+          }
+        },
+        {
+          "name": "Count Replies by Author",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:4400/api/v1/reply/author/{{authorId}}/count",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4400",
+              "path": ["api", "v1", "reply", "author", "{{authorId}}", "count"]
+            }
+          }
+        }
+      ]
+    }
+
+  ]
+}

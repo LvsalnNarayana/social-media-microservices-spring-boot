@@ -1,0 +1,1 @@
+CREATE INDEX idx_comment ON post.comments(id);
