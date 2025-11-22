@@ -25,11 +25,11 @@ public class LogEventListener {
     public void listen(LogEvent logEvent, Acknowledgment ack) {
 
         try {
-            log.debug("Received log event: {}", logEvent);
+            System.out.println("Received log event:"+ logEvent);
 
-            storageService.store(logEvent);
-
-            ack.acknowledge(); // manually commit after success
+//            storageService.store(logEvent);
+//
+//            ack.acknowledge(); // manually commit after success
 
         } catch (Exception ex) {
             log.error("Failed to process log event: {}", logEvent, ex);

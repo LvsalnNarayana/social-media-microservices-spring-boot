@@ -8,6 +8,7 @@ import com.example.social_media.post_service.repository.PostRepository;
 import com.example.social_media.post_service.services.interfaces.IPostService;
 import com.example.social_media.shared_libs.builders.LogEventBuilder;
 import com.example.social_media.shared_libs.exceptions.BadRequest;
+import com.example.social_media.shared_libs.kafka.KafkaLogProducer;
 import com.example.social_media.shared_libs.models.LogEvent;
 import com.example.social_media.shared_libs.services.BaseService;
 import com.example.social_media.shared_libs.utils.RestClientUtility;
@@ -19,6 +20,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @Slf4j
@@ -27,15 +29,17 @@ public class PostServiceImpl extends BaseService implements IPostService {
 
     private final PostRepository postRepository;
     private final PostModelMapper mapper;
+    private final KafkaLogProducer KafkaLogProducer;
 
-    private final KafkaTemplate<String, LogEvent> kafkaTemplate;
-    public PostServiceImpl(RestClientUtility restClientUtility,
-                           PostRepository postRepository,
-                           PostModelMapper mapper,KafkaTemplate<String, LogEvent> kafkaTemplate) {
+    public PostServiceImpl(
+            KafkaLogProducer KafkaLogProducer,
+            RestClientUtility restClientUtility,
+            PostRepository postRepository,
+            PostModelMapper mapper, KafkaTemplate<String, LogEvent> kafkaTemplate) {
         super(restClientUtility);
         this.postRepository = postRepository;
         this.mapper = mapper;
-        this.kafkaTemplate = kafkaTemplate;
+        this.KafkaLogProducer = KafkaLogProducer;
     }
 
 
@@ -76,7 +80,7 @@ public class PostServiceImpl extends BaseService implements IPostService {
                 .logger(PostServiceImpl.class)
                 .tags(List.of("test"))
                 .build();
-        kafkaTemplate.send("social_media_logs", event);
+        KafkaLogProducer.info("Id Requested", event.getContext());
         return mapper.toResponse(entity);
     }
 

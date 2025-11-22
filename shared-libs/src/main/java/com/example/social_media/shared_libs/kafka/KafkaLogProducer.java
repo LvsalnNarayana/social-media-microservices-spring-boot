@@ -18,11 +18,25 @@ public class KafkaLogProducer {
     private final LoggingProperties props;
 
     public void publish(LogEvent event) {
-        if (!props.isEnabled()) return;
-        template.send(props.getTopic(), event);
+        if (!props.isEnabled()) {
+            return;
+        }
+        template.send(props.getTopic(), event).whenComplete((result, ex) -> {
+            if (ex != null) {
+                System.out.println("❌ Failed to send log event to Kafka");
+            } else {
+                System.out.println("✅ Log event sent to Kafka. Topic={}, Partition={}, Offset={}" +
+                        result.getRecordMetadata().topic() +
+                        result.getRecordMetadata().partition() +
+                        result.getRecordMetadata().offset());
+
+            }
+        });
+        ;
     }
 
     public void info(String msg, Map<String, Object> ctx) {
+        System.out.println(props.getTopic());
         publish(new LogEventBuilder("INFO", msg).context(ctx).build());
     }
 
