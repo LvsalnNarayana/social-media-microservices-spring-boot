@@ -4,7 +4,10 @@ import com.example.social_media.shared_libs.models.LogEvent;
 import lombok.SneakyThrows;
 
 import java.time.Instant;
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class LogEventBuilder {
 

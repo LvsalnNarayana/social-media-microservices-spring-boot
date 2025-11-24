@@ -1,14 +1,22 @@
 package com.example.social_media.shared_libs.configuration;
 
-import lombok.Data;
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import lombok.Getter;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-@Data
+@Getter
 @Component
-@ConfigurationProperties(prefix = "logging")
 public class LoggingProperties {
-    private String topic;
+
+    @Value("${logging.bootstrap-servers:}")
     private String bootstrapServers;
-    private boolean enabled = true;
+
+    @Value("${logging.enabled:false}")
+    private boolean enabled;
+
+    @Value("${logging.topic-strings:}")
+    private String topicStrings;
+
+    @Value("${logging.topic-json:}")
+    private String topicJson;
 }

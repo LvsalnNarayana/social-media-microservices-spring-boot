@@ -1,0 +1,174 @@
+{
+  "info": {
+    "name": "Notification Service (port 4900) - Organized (CRUD + OPERATIONS)",
+    "_postman_id": "a3f4d9df-0000-4f7a-9f1e-abcdef123456",
+    "description": "Notification Service API collection, organized into CRUD and OPERATIONS folders. Set environment variable `base_url` to http://localhost:4900",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "CRUD",
+      "item": [
+        {
+          "name": "Create Notification",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"recipientId\": \"user-123\",\n  \"senderId\": \"user-456\",\n  \"message\": \"Someone liked your post\",\n  \"type\": \"LIKE\",\n  \"metadata\": { \"postId\": \"1111-2222\" }\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/notifications",
+              "host": ["{{base_url}}"],
+              "path": ["api","v1","notifications"]
+            }
+          }
+        },
+        {
+          "name": "Get Notification By Id",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/notifications/:notificationId",
+              "host": ["{{base_url}}"],
+              "path": ["api","v1","notifications",":notificationId"]
+            }
+          }
+        },
+        {
+          "name": "Get All Notifications For User",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/notifications/user/:userId",
+              "host": ["{{base_url}}"],
+              "path": ["api","v1","notifications","user",":userId"]
+            }
+          }
+        },
+        {
+          "name": "Get Unread Notifications For User",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/notifications/user/:userId/unread",
+              "host": ["{{base_url}}"],
+              "path": ["api","v1","notifications","user",":userId","unread"]
+            }
+          }
+        },
+        {
+          "name": "Update: Mark Notification As Read",
+          "request": {
+            "method": "PUT",
+            "url": {
+              "raw": "{{base_url}}/api/v1/notifications/:notificationId/read",
+              "host": ["{{base_url}}"],
+              "path": ["api","v1","notifications",":notificationId","read"]
+            }
+          }
+        },
+        {
+          "name": "Update: Mark All As Read (user)",
+          "request": {
+            "method": "PUT",
+            "url": {
+              "raw": "{{base_url}}/api/v1/notifications/user/:userId/read-all",
+              "host": ["{{base_url}}"],
+              "path": ["api","v1","notifications","user",":userId","read-all"]
+            }
+          }
+        },
+        {
+          "name": "Delete Notification",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{base_url}}/api/v1/notifications/:notificationId",
+              "host": ["{{base_url}}"],
+              "path": ["api","v1","notifications",":notificationId"]
+            }
+          }
+        },
+        {
+          "name": "Delete All For User",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{base_url}}/api/v1/notifications/user/:userId",
+              "host": ["{{base_url}}"],
+              "path": ["api","v1","notifications","user",":userId"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "OPERATIONS",
+      "item": [
+        {
+          "name": "Counts: Get Unread Count",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/notifications/user/:userId/count/unread",
+              "host": ["{{base_url}}"],
+              "path": ["api","v1","notifications","user",":userId","count","unread"]
+            }
+          }
+        },
+        {
+          "name": "Counts: Get Total Count",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/notifications/user/:userId/count",
+              "host": ["{{base_url}}"],
+              "path": ["api","v1","notifications","user",":userId","count"]
+            }
+          }
+        },
+        {
+          "name": "Event: Create From Event (generic)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"eventType\": \"COMMENT_CREATED\",\n  \"payload\": {\n    \"postId\": \"1111-2222\",\n    \"commentId\": \"3333-4444\",\n    \"recipientId\": \"user-123\",\n    \"senderId\": \"user-456\",\n    \"message\": \"New comment on your post\"\n  }\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/notifications/event",
+              "host": ["{{base_url}}"],
+              "path": ["api","v1","notifications","event"]
+            }
+          }
+        },
+        {
+          "name": "Analytics Consumer - sample fetch (same as get All)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/notifications/user/:userId",
+              "host": ["{{base_url}}"],
+              "path": ["api","v1","notifications","user",":userId"]
+            },
+            "description": "Use this to simulate analytics consumer reads"
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:4900",
+      "type": "string"
+    }
+  ]
+}

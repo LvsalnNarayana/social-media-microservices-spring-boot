@@ -4,15 +4,43 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d014b719-04d9-4913-8951-f05d4f0e0736" name="Changes" comment="">
+    <list default="true" id="d014b719-04d9-4913-8951-f05d4f0e0736" name="Changes" comment="created kafka supporting files to implement basic kafka logs in logging service from post service">
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/example/social_media/notification_service/advisors/RestApiControllerAdvice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/example/social_media/notification_service/entity/NotificationEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/example/social_media/notification_service/mappers/NotificationModelMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/example/social_media/notification_service/models/FlagRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/example/social_media/notification_service/models/NotificationModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/example/social_media/notification_service/models/NotificationRequestModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/example/social_media/notification_service/models/NotificationResponseModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/example/social_media/notification_service/models/PagedNotificationModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/example/social_media/notification_service/repository/NotificationRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/example/social_media/notification_service/services/NotificationServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/example/social_media/notification_service/services/interfaces/INotificationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/example/social_media/notification_service/web/api/NotificationControllerImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/example/social_media/notification_service/web/api/interfaces/INotificationApi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notifications-postman.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/configuration/EventLogKafkaConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/configuration/StringLogKafkaConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/kafka/KafkaProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logging-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/logging-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comment-service/src/main/java/com/example/social_media/comment_service/CommentServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/comment-service/src/main/java/com/example/social_media/comment_service/CommentServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comment-service/src/main/java/com/example/social_media/comment_service/services/CommentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/comment-service/src/main/java/com/example/social_media/comment_service/services/CommentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logging-service/src/main/java/com/example/social_media/logging_service/LoggingServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/logging-service/src/main/java/com/example/social_media/logging_service/LoggingServiceApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logging-service/src/main/java/com/example/social_media/logging_service/configuration/KafkaConsumerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/logging-service/src/main/java/com/example/social_media/logging_service/configuration/KafkaConsumerConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logging-service/src/main/java/com/example/social_media/logging_service/services/LogEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/logging-service/src/main/java/com/example/social_media/logging_service/services/LogEventListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/post-service/src/main/java/com/example/social_media/post_service/services/PostServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/com/example/social_media/post_service/services/PostServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reply-service/src/main/java/com/example/social_media/reply_service/services/ReplyServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/reply-service/src/main/java/com/example/social_media/reply_service/services/ReplyServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared-libs/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/shared-libs/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/configuration/LoggingKafkaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/configuration/LoggingKafkaConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/kafka/KafkaLogProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/kafka/KafkaLogProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/builders/LogEventBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/builders/LogEventBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/configuration/LoggingKafkaConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/configuration/LoggingProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/configuration/LoggingProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/kafka/KafkaLogProducer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/models/LogEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/models/LogEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/services/LoggingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/services/LoggingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social-media-docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/social-media-docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,14 +58,27 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/dev-narayana" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "LvsalnNarayana"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;LvsalnNarayana&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/LvsalnNarayana/social-media-microservices-spring-boot.git&quot;,
@@ -70,6 +111,7 @@
     "Application.config-server.executor": "Run",
     "Application.logging-servie.executor": "Run",
     "Application.message-service.executor": "Run",
+    "Application.notification-service.executor": "Run",
     "Application.order-service.executor": "Debug",
     "Application.post-service.executor": "Run",
     "Application.reply-service.executor": "Run",
@@ -100,7 +142,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/narayanalvsaln/Dev/Dev Setup/spring-boot/social-media-microservices/reply-service/src/main/java/com/example/social_media/reply_service",
+    "last_opened_file_path": "/Users/narayanalvsaln/Dev/Dev Setup/spring-boot/social-media-microservices/notification-service/src/main/java/com/example/social_media/notification_service",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -113,11 +155,11 @@
       <recent name="com.example.social_media.user_service.models.interfaces" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/notification-service/src/main/java/com/example/social_media/notification_service" />
       <recent name="$PROJECT_DIR$/reply-service/src/main/java/com/example/social_media/reply_service" />
       <recent name="$PROJECT_DIR$/comment-service/src/main/java/com/example/social_media/comment_service" />
       <recent name="$PROJECT_DIR$/user-service/src/main/java/com/example/social_media/user_service" />
       <recent name="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs" />
-      <recent name="$PROJECT_DIR$/post-service/src/main/java/com/example/social_media/post_service" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/config-server/src/main/resources" />
@@ -141,6 +183,7 @@
             <set>
               <option value="api-gateway" />
               <option value="config-server" />
+              <option value="message-service" />
             </set>
           </value>
         </entry>
@@ -154,6 +197,7 @@
               <entry key="comment-service" value="STOPPED" />
               <entry key="logging-servie" value="STOPPED" />
               <entry key="message-service" value="STOPPED" />
+              <entry key="notification-service" value="STOPPED" />
               <entry key="post-service" value="STOPPED" />
               <entry key="reply-service" value="STOPPED" />
               <entry key="user-service" value="STOPPED" />
@@ -199,6 +243,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="notification-service" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.example.social_media.notification_service.NotificationServiceApplication" />
+      <module name="notification-service" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="post-service" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.example.social_media.post_service.PostServiceApplication" />
       <module name="post-service" />
@@ -221,6 +272,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.notification-service" />
       <item itemvalue="Application.logging-servie" />
       <item itemvalue="Application.api-gateway" />
       <item itemvalue="Application.comment-service" />
@@ -239,11 +291,47 @@
       <option name="presentableId" value="Default" />
       <updated>1757415745365</updated>
     </task>
+    <task id="LOCAL-00001" summary="created kafka supporting files to implement basic kafka logs in logging service from post service">
+      <option name="closed" value="true" />
+      <created>1763805036850</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1763805036850</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/master" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="INITIAL COMMIT  completed post,comment,reply and user services. wroking on logging, need to integrate keycloak" />
-    <option name="LAST_COMMIT_MESSAGE" value="INITIAL COMMIT  completed post,comment,reply and user services. wroking on logging, need to integrate keycloak" />
+    <MESSAGE value="created kafka supporting files to implement basic kafka logs in logging service from post service" />
+    <option name="LAST_COMMIT_MESSAGE" value="created kafka supporting files to implement basic kafka logs in logging service from post service" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>

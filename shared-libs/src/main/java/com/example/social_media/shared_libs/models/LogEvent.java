@@ -1,6 +1,10 @@
 package com.example.social_media.shared_libs.models;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.time.Instant;
 import java.util.List;
 import java.util.Map;
