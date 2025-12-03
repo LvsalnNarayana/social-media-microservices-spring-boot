@@ -4,42 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d014b719-04d9-4913-8951-f05d4f0e0736" name="Changes" comment="created kafka supporting files to implement basic kafka logs in logging service from post service">
-      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/example/social_media/notification_service/advisors/RestApiControllerAdvice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/example/social_media/notification_service/entity/NotificationEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/example/social_media/notification_service/mappers/NotificationModelMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/example/social_media/notification_service/models/FlagRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/example/social_media/notification_service/models/NotificationModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/example/social_media/notification_service/models/NotificationRequestModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/example/social_media/notification_service/models/NotificationResponseModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/example/social_media/notification_service/models/PagedNotificationModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/example/social_media/notification_service/repository/NotificationRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/example/social_media/notification_service/services/NotificationServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/example/social_media/notification_service/services/interfaces/INotificationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/example/social_media/notification_service/web/api/NotificationControllerImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/example/social_media/notification_service/web/api/interfaces/INotificationApi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notifications-postman.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/configuration/EventLogKafkaConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/configuration/StringLogKafkaConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/kafka/KafkaProducer.java" afterDir="false" />
+    <list default="true" id="d014b719-04d9-4913-8951-f05d4f0e0736" name="Changes" comment="notification service unversioned files">
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/configuration/NotificationRabbitDeclarations.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/rabbitMQ/NotificationEventConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/rabbitMQ/NotificationEventProducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/rabbitMQ/NotificationRabbitConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/rabbitMQ/RabbitMQConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/utils/ExtendedCorrelationData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comment-service/src/main/java/com/example/social_media/comment_service/CommentServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/comment-service/src/main/java/com/example/social_media/comment_service/CommentServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comment-service/src/main/java/com/example/social_media/comment_service/services/CommentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/comment-service/src/main/java/com/example/social_media/comment_service/services/CommentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logging-service/src/main/java/com/example/social_media/logging_service/LoggingServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/logging-service/src/main/java/com/example/social_media/logging_service/LoggingServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logging-service/src/main/java/com/example/social_media/logging_service/configuration/KafkaConsumerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/logging-service/src/main/java/com/example/social_media/logging_service/configuration/KafkaConsumerConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logging-service/src/main/java/com/example/social_media/logging_service/services/LogEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/logging-service/src/main/java/com/example/social_media/logging_service/services/LogEventListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/post-service/src/main/java/com/example/social_media/post_service/services/PostServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/com/example/social_media/post_service/services/PostServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reply-service/src/main/java/com/example/social_media/reply_service/services/ReplyServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/reply-service/src/main/java/com/example/social_media/reply_service/services/ReplyServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reply-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/reply-service/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared-libs/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/shared-libs/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/builders/LogEventBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/builders/LogEventBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/configuration/LoggingKafkaConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/configuration/LoggingProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/configuration/LoggingProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/kafka/KafkaLogProducer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/models/LogEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/models/LogEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/services/LoggingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared-libs/src/main/java/com/example/social_media/shared_libs/services/LoggingService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/social-media-docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/social-media-docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,53 +80,54 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.api-gateway.executor": "Run",
-    "Application.catalog-service.executor": "Run",
-    "Application.comment-service.executor": "Run",
-    "Application.config-server.executor": "Run",
-    "Application.logging-servie.executor": "Run",
-    "Application.message-service.executor": "Run",
-    "Application.notification-service.executor": "Run",
-    "Application.order-service.executor": "Debug",
-    "Application.post-service.executor": "Run",
-    "Application.reply-service.executor": "Run",
-    "Application.user-service.executor": "Run",
-    "Maven.api-gateway [clean].executor": "Run",
-    "Maven.comment-service [clean].executor": "Run",
-    "Maven.comment-service [compile].executor": "Run",
-    "Maven.config-server [clean].executor": "Run",
-    "Maven.message-service [clean].executor": "Run",
-    "Maven.post-service [clean].executor": "Run",
-    "Maven.post-service [compile].executor": "Run",
-    "Maven.post-service [install].executor": "Run",
-    "Maven.post-service [package].executor": "Run",
-    "Maven.reply-service [clean].executor": "Run",
-    "Maven.shared-libs [clean].executor": "Run",
-    "Maven.shared-libs [compile].executor": "Run",
-    "Maven.shared-libs [package].executor": "Run",
-    "Maven.shared_libs [clean].executor": "Run",
-    "Maven.shared_libs [compile].executor": "Run",
-    "Maven.shared_libs [install].executor": "Run",
-    "Maven.shared_libs [package].executor": "Run",
-    "Maven.user-service [clean].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "OverrideImplement.generate.javadoc": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/narayanalvsaln/Dev/Dev Setup/spring-boot/social-media-microservices/notification-service/src/main/java/com/example/social_media/notification_service",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "advanced.settings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ReplyServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.api-gateway.executor&quot;: &quot;Run&quot;,
+    &quot;Application.catalog-service.executor&quot;: &quot;Run&quot;,
+    &quot;Application.comment-service.executor&quot;: &quot;Run&quot;,
+    &quot;Application.config-server.executor&quot;: &quot;Run&quot;,
+    &quot;Application.logging-servie.executor&quot;: &quot;Run&quot;,
+    &quot;Application.message-service.executor&quot;: &quot;Run&quot;,
+    &quot;Application.notification-service.executor&quot;: &quot;Run&quot;,
+    &quot;Application.order-service.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.post-service.executor&quot;: &quot;Run&quot;,
+    &quot;Application.reply-service.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.user-service.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.api-gateway [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.comment-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.comment-service [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.config-server [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.message-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.post-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.post-service [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.post-service [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.post-service [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.reply-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.shared-libs [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.shared-libs [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.shared-libs [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.shared_libs [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.shared_libs [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.shared_libs [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.shared_libs [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.user-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;OverrideImplement.generate.javadoc&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/narayanalvsaln/Dev/Dev Setup/spring-boot/social-media-microservices/notification-service/src/main/java/com/example/social_media/notification_service&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.grazie&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.example.social_media.user_service.models.interfaces" />
@@ -176,19 +154,6 @@
         <option value="Application" />
       </set>
     </option>
-    <option name="hiddenConfigurations">
-      <map>
-        <entry key="Application">
-          <value>
-            <set>
-              <option value="api-gateway" />
-              <option value="config-server" />
-              <option value="message-service" />
-            </set>
-          </value>
-        </entry>
-      </map>
-    </option>
     <option name="configurationStatuses">
       <map>
         <entry key="Application">
@@ -196,7 +161,6 @@
             <map>
               <entry key="comment-service" value="STOPPED" />
               <entry key="logging-servie" value="STOPPED" />
-              <entry key="message-service" value="STOPPED" />
               <entry key="notification-service" value="STOPPED" />
               <entry key="post-service" value="STOPPED" />
               <entry key="reply-service" value="STOPPED" />
@@ -207,14 +171,7 @@
       </map>
     </option>
   </component>
-  <component name="RunManager" selected="Application.comment-service">
-    <configuration name="api-gateway" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="com.example.social_media.api_gateway.ApiGatewayApplication" />
-      <module name="api-gateway" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.notification-service">
     <configuration name="comment-service" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.example.social_media.comment_service.CommentServiceApplication" />
       <module name="comment-service" />
@@ -222,23 +179,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="config-server" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="com.example.social_media.config_server.ConfigServerApplication" />
-      <module name="config-server" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="logging-servie" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.example.social_media.logging_service.LoggingServiceApplication" />
       <module name="logging-service" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="message-service" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="com.example.social_media.message_service.MessageServiceApplication" />
-      <module name="message-service" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -260,6 +203,12 @@
     <configuration name="reply-service" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.example.social_media.reply_service.ReplyServiceApplication" />
       <module name="reply-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.social_media.reply_service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -273,13 +222,10 @@
     </configuration>
     <list>
       <item itemvalue="Application.notification-service" />
-      <item itemvalue="Application.logging-servie" />
-      <item itemvalue="Application.api-gateway" />
-      <item itemvalue="Application.comment-service" />
-      <item itemvalue="Application.config-server" />
-      <item itemvalue="Application.message-service" />
-      <item itemvalue="Application.post-service" />
       <item itemvalue="Application.reply-service" />
+      <item itemvalue="Application.logging-servie" />
+      <item itemvalue="Application.comment-service" />
+      <item itemvalue="Application.post-service" />
       <item itemvalue="Application.user-service" />
     </list>
   </component>
@@ -299,7 +245,23 @@
       <option name="project" value="LOCAL" />
       <updated>1763805036850</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Implemented kafka logs for operations and error logs for comment, reply, post services and also implemented listeners for them in logging-service.">
+      <option name="closed" value="true" />
+      <created>1763987671444</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1763987671444</updated>
+    </task>
+    <task id="LOCAL-00003" summary="notification service unversioned files">
+      <option name="closed" value="true" />
+      <created>1763988441338</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1763988441338</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -308,6 +270,11 @@
         <entry key="Branch">
           <value>
             <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/dev-narayana" />
+                </option>
+              </RecentGroup>
               <RecentGroup>
                 <option name="FILTER_VALUES">
                   <option value="origin/master" />
@@ -331,7 +298,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="INITIAL COMMIT  completed post,comment,reply and user services. wroking on logging, need to integrate keycloak" />
     <MESSAGE value="created kafka supporting files to implement basic kafka logs in logging service from post service" />
-    <option name="LAST_COMMIT_MESSAGE" value="created kafka supporting files to implement basic kafka logs in logging service from post service" />
+    <MESSAGE value="Implemented kafka logs for operations and error logs for comment, reply, post services and also implemented listeners for them in logging-service." />
+    <MESSAGE value="notification service unversioned files" />
+    <option name="LAST_COMMIT_MESSAGE" value="notification service unversioned files" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>

@@ -4,6 +4,8 @@ volumes:
   redis_data:
   mongo_data:
   kafka_data:
+  rabbitmq_data:
+  rabbitmq_log:
 
 # Define custom network for efficient communication
 networks:
@@ -220,5 +222,34 @@ services:
     networks:
       - social_media_network
     restart: unless-stopped
+
+  rabbitmq:
+    image: rabbitmq:3.13-management
+    container_name: social_media_rabbit_mq
+    hostname: rabbitmq
+    restart: unless-stopped
+
+    # Persist broker data
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq/mnesia
+      - rabbitmq_log:/var/log/rabbitmq
+
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: admin
+      RABBITMQ_DEFAULT_VHOST: /notifications
+
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+    healthcheck:
+      test: [ "CMD", "rabbitmq-diagnostics", "ping" ]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+
+    networks:
+      - social_media_network
 
 

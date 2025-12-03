@@ -10,6 +10,8 @@ import com.example.social_media.shared_libs.builders.LogEventBuilder;
 import com.example.social_media.shared_libs.exceptions.BadRequest;
 import com.example.social_media.shared_libs.kafka.KafkaProducer;
 import com.example.social_media.shared_libs.models.LogEvent;
+import com.example.social_media.shared_libs.rabbitMQ.NotificationEventProducer;
+import com.example.social_media.shared_libs.rabbitMQ.RabbitMQConstants;
 import com.example.social_media.shared_libs.services.BaseService;
 import com.example.social_media.shared_libs.utils.RestClientUtility;
 import jakarta.persistence.EntityNotFoundException;
@@ -35,6 +37,7 @@ public class PostServiceImpl extends BaseService implements IPostService {
     private final String postKafkaJsonTopic;
     private final String postKafkaErrorStringTopic;
     private final String postKafkaErrorJsonTopic;
+    private final NotificationEventProducer notificationEventProducer;
 
     public PostServiceImpl(
             KafkaProducer kafkaProducer,
@@ -44,7 +47,7 @@ public class PostServiceImpl extends BaseService implements IPostService {
             @Value("${logging.topic-strings}") String postKafkaStringTopic,
             @Value("${logging.topic-json}") String postKafkaJsonTopic,
             @Value("${logging.error.topic-strings}") String postKafkaErrorStringTopic,
-            @Value("${logging.error.topic-json}") String postKafkaErrorJsonTopic
+            @Value("${logging.error.topic-json}") String postKafkaErrorJsonTopic, NotificationEventProducer notificationEventProducer
     ) {
         super(restClientUtility);
         this.postRepository = postRepository;
@@ -54,6 +57,7 @@ public class PostServiceImpl extends BaseService implements IPostService {
         this.postKafkaJsonTopic = postKafkaJsonTopic;
         this.postKafkaErrorStringTopic = postKafkaErrorStringTopic;
         this.postKafkaErrorJsonTopic = postKafkaErrorJsonTopic;
+        this.notificationEventProducer = notificationEventProducer;
     }
 
     private void logInfo(String message) {
@@ -271,12 +275,21 @@ public class PostServiceImpl extends BaseService implements IPostService {
         try {
             logInfo("Add comment=" + commentId + " to post=" + postId);
             PostEntity entity = getPostOrThrow(postId);
+            LogEvent event = new LogEventBuilder(
+                    "INFO",
+                    "Added comment=" + commentId + " to post=" + postId
+            )
+                    .service("post-service")
+                    .logger(PostServiceImpl.class)
+                    .tags(List.of("post-service"))
+                    .build();
             UUID commentUUID = UUID.fromString(commentId);
             if (entity.getCommentIds() == null) {
                 entity.setCommentIds(new ArrayList<>());
             }
             entity.getCommentIds().add(commentUUID);
             entity.setCommentsCount(entity.getCommentsCount() + 1);
+            notificationEventProducer.sendEvent(RabbitMQConstants.EXCHANGE_POST,RabbitMQConstants.ROUTING_POST,event);
             postRepository.save(entity);
         } catch (Exception ex) {
             logError("Failed adding comment=" + commentId + " to post=" + postId, ex);
